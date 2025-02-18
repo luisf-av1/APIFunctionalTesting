@@ -1,0 +1,40 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  functional-api-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Newman and dependencies
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
+
+      - name: Run Newman for API Under test
+        run: |
+          echo "Go to https://trello.com/u/luisarroyavevalencia/boards" to see live execution
+          newman run https://api.postman.com/collections/${{ secrets.POSTMAN_COLLECTION }}?apikey=${{ secrets.POSTMAN_API_KEY }} --folder "Flow" -d './Collections/Trello API/data.json' -r cli,junit,htmlextra --reporter-junit-export './reports/report.xml' --reporter-htmlextra-export './reports/report.html'
+        env:
+          TRELLO_COLLECTION: ${{ secrets.POSTMAN_COLLECTION }}
+          POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
+
+      - name: Upload Trello API Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: trello-api-reports
+          path: reports/
