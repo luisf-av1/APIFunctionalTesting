@@ -35,7 +35,7 @@ jobs:
       - name: ▶️ Run Newman for API Under test
         run: |
           echo "Go to https://trello.com/u/luisarroyavevalencia/boards" to see live execution
-          newman run https://api.postman.com/collections/${{ secrets.POSTMAN_COLLECTION }}?apikey=${{ secrets.POSTMAN_API_KEY }} --folder "Flow" -d './Collections/Trello API/data.json' -r cli,junit,htmlextra --reporter-junit-export './reports/report.xml' --reporter-htmlextra-export './reports/report.html'
+          newman run https://api.postman.com/collections/${{ secrets.POSTMAN_COLLECTION }}?apikey=${{ secrets.POSTMAN_API_KEY }} --folder "Flow" -r cli,junit,htmlextra --reporter-junit-export './reports/report.xml' --reporter-htmlextra-export './reports/report.html'
         env:
           TRELLO_COLLECTION: ${{ secrets.POSTMAN_COLLECTION }}
           POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
