@@ -61,7 +61,7 @@ jobs:
       - name: Create folder for current report
         run: |
           export TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-          cp -R jmeter/global-report "reports/$TIMESTAMP"
+          cp -R reports/ "reports/$TIMESTAMP"
           echo "Report generated in: reports/$TIMESTAMP"
 
       - name: 📝 Generate report index
