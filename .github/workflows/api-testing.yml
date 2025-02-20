@@ -30,12 +30,12 @@ jobs:
           npm install -g newman-reporter-htmlextra
 
       - name: 📂 Prepare folders for Test reports
-        run: mkdir -p reports
+        run: mkdir -p newman
 
       - name: ▶️ Run Postman Collection throught Newman
         run: |
           echo "Go to https://trello.com/u/luisarroyavevalencia/boards" to see live execution
-          newman run https://api.postman.com/collections/${{ secrets.POSTMAN_COLLECTION }}?apikey=${{ secrets.POSTMAN_API_KEY }} --folder "Flow" -r cli,junit,htmlextra --reporter-junit-export './reports/report.xml' --reporter-htmlextra-export './reports/report.html'
+          newman run https://api.postman.com/collections/${{ secrets.POSTMAN_COLLECTION }}?apikey=${{ secrets.POSTMAN_API_KEY }} --folder "Flow" -r cli,junit,htmlextra --reporter-junit-export './newman/report.xml' --reporter-htmlextra-export './newman/report.html'
         env:
           TRELLO_COLLECTION: ${{ secrets.POSTMAN_COLLECTION }}
           POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: trello-api-reports
-          path: reports/
+          path: newman/
 
       - name: ➡️ Checkout gh-pages branch
         uses: actions/checkout@v4
@@ -61,7 +61,7 @@ jobs:
       - name: Create folder for current report
         run: |
           export TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-          cp -R reports/ "reports/$TIMESTAMP"
+          cp -R newman/ "reports/$TIMESTAMP"
           echo "Report generated in: reports/$TIMESTAMP"
 
       - name: 📝 Generate report index
