@@ -92,7 +92,7 @@ jobs:
               [ -d "$dir" ] || continue
               dirname=$(basename "$dir")
               if [ "$dirname" != "index.html" ]; then
-                echo "<li><a href=\"${dirname}/\">${dirname}</a></li>" >> reports/index.html
+                echo "<li><a href=\"${dirname}/report.html\">${dirname}</a></li>" >> reports/index.html
               fi
             done
           cat << 'EOF' >> reports/index.html
