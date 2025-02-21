@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Trello API" tests="12" time="3.857">
+  <testsuite name="Flow / Create board" id="893bbf79-96df-4e3d-8b3b-05fa83f42854" timestamp="2025-02-21T02:43:10.445Z" tests="3" failures="0" errors="0" time="0.413">
+    <testcase name="Status code is 200" time="0.413" classname="FlowCreateBoard"/>
+    <testcase name="Validate create a new board" time="0.413" classname="FlowCreateBoard"/>
+    <testcase name="Validate board Prefs" time="0.413" classname="FlowCreateBoard"/>
+  </testsuite>
+  <testsuite name="Flow / Get all boards" id="e342e060-dfde-4ee4-9a07-42f176da6e44" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="0.104">
+    <testcase name="Status code is 200" time="0.104" classname="FlowGetAllBoards"/>
+    <testcase name="Validate at leats one board exist" time="0.104" classname="FlowGetAllBoards"/>
+  </testsuite>
+  <testsuite name="Flow / Get a board" id="7c45c370-ed98-43d0-a497-242b9604c38c" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="0.068">
+    <testcase name="Status code is 200" time="0.068" classname="FlowGetABoard"/>
+    <testcase name="Validate get created board" time="0.068" classname="FlowGetABoard"/>
+  </testsuite>
+  <testsuite name="Flow / Create &quot;To Do&quot; List" id="ec89853b-a76f-48af-a9a8-99e40f1ff517" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="0.157">
+    <testcase name="Status code is 200" time="0.157" classname="FlowCreateQuotToDoQuotList"/>
+    <testcase name="Validate create a ToDo list" time="0.157" classname="FlowCreateQuotToDoQuotList"/>
+  </testsuite>
+  <testsuite name="Flow / Create &quot;Done&quot; List" id="fd461ca5-b5eb-4c3f-a47b-4a4d69f273ca" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="0.184">
+    <testcase name="Status code is 200" time="0.184" classname="FlowCreateQuotDoneQuotList"/>
+    <testcase name="Validate create a Done list" time="0.184" classname="FlowCreateQuotDoneQuotList"/>
+  </testsuite>
+  <testsuite name="Flow / Get all lists in aboard" id="fa52c31d-245c-4098-bd2d-8f106d87acb0" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="0.074">
+    <testcase name="Status code is 200" time="0.074" classname="FlowGetAllListsInAboard"/>
+    <testcase name="Validate at leats one list exist" time="0.074" classname="FlowGetAllListsInAboard"/>
+  </testsuite>
+  <testsuite name="Flow / Create a card" id="d345ecb4-22d3-4d29-a5f5-7341cb99efff" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="0.314">
+    <testcase name="Status code is 200" time="0.314" classname="FlowCreateACard"/>
+    <testcase name="Validate create a new card" time="0.314" classname="FlowCreateACard"/>
+  </testsuite>
+  <testsuite name="Flow / Move a card to &quot;Done&quot; List" id="ce73bf4f-773c-4bac-8da2-a1bb0abb7926" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="0.264">
+    <testcase name="Status code is 200" time="0.264" classname="FlowMoveACardToQuotDoneQuotList"/>
+    <testcase name="Validate move a card to Done list" time="0.264" classname="FlowMoveACardToQuotDoneQuotList"/>
+  </testsuite>
+  <testsuite name="Flow / Move a card to &quot;Todo&quot; List" id="1959211d-9b57-405b-b8de-fa0c118271c8" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="0.300">
+    <testcase name="Status code is 200" time="0.300" classname="FlowMoveACardToQuotTodoQuotList"/>
+    <testcase name="Validate move a card to Done list" time="0.300" classname="FlowMoveACardToQuotTodoQuotList"/>
+  </testsuite>
+  <testsuite name="Flow / Delete a card" id="3787fc2e-f976-4709-8c97-039e78026177" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="0.610">
+    <testcase name="Status code is 200" time="0.610" classname="FlowDeleteACard"/>
+    <testcase name="Validate delete a card" time="0.610" classname="FlowDeleteACard"/>
+  </testsuite>
+  <testsuite name="Flow / Delete a board" id="2a03a4d4-6944-4aab-80a6-56b2551931ac" timestamp="2025-02-21T02:43:10.445Z" tests="2" failures="0" errors="0" time="1.317">
+    <testcase name="Status code is 200" time="1.317" classname="FlowDeleteABoard"/>
+    <testcase name="Validate response message" time="1.317" classname="FlowDeleteABoard"/>
+  </testsuite>
+  <testsuite name="Flow / Get deleted board" id="b3196c03-21b5-4950-90f1-24fa69269c8f" timestamp="2025-02-21T02:43:10.445Z" tests="1" failures="0" errors="0" time="0.052">
+    <testcase name="Status code is 404" time="0.052" classname="FlowGetDeletedBoard"/>
+  </testsuite>
+</testsuites>
