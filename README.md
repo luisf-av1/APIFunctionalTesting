@@ -142,10 +142,7 @@ The reports are published to the `gh-pages` branch:
 - `index.html` provides an overview of all test results.
 
 ## How to Access Reports
-Once the pipeline runs, test reports will be available at:
-```
-https://luisf-av1.github.io/APITesting/
-```
+Once the pipeline runs, test reports will be available at: https://luisf-av1.github.io/APIFunctionalTesting/
 
 ---
 ### 🚀 This CI pipeline ensures continuous API testing and easy access to test reports! 🚀
