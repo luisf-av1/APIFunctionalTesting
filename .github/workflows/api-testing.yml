@@ -29,7 +29,7 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
 
-      - name: 📂 Prepare folders for Test reports
+      - name: 📂 Prepare folders to store newman report
         run: mkdir -p newman
 
       - name: ▶️ Run Postman Collection throught Newman
@@ -52,19 +52,20 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Get previous reports from gh-pages branch
+      - name: 📚 Get previous reports from gh-pages branch
         run: |
           rm -rf reports
           mkdir -p reports
-          rsync -av --ignore-existing gh-pages/ reports/
+          rsync -av --ignore-existing gh-pages/ reports/ # Copies only new reports from "gh-pages/" to "reports/"
 
-      - name: Create folder for current report
+      - name: 🗄 Create folder for current report
         run: |
           export TIMESTAMP=$(date +%Y%m%d-%H%M%S)
-          cp -R newman/ "reports/$TIMESTAMP"
+          cp -R newman/ "reports/$TIMESTAMP" # Copy files of new report ( saved in "newman/") into new folder to store report ("reports/$TIMESTAMP")
           echo "Report generated in: reports/$TIMESTAMP"
 
-      - name: 📝 Generate report index
+      - name: 📝 Generate reports hub page (index.html)
+      # Create page to list all the generated reports
         run: |
           cat << 'EOF' > reports/index.html
           <!DOCTYPE html>
@@ -92,7 +93,7 @@ jobs:
               [ -d "$dir" ] || continue
               dirname=$(basename "$dir")
               if [ "$dirname" != "index.html" ]; then
-                echo "<li><a href=\"${dirname}/report.html\">${dirname}</a></li>" >> reports/index.html
+                echo "<li><a href=\"${dirname}/report.html\">${dirname}</a></li>" >> reports/index.html # List links to generate reports in reports hub (index.html)
               fi
             done
           cat << 'EOF' >> reports/index.html
